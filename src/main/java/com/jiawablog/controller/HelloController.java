@@ -11,7 +11,7 @@ public class HelloController {
         return "TEST!";
     }
 
-    @RequestMapping("/hello2")
+    @RequestMapping("/")
     public String index() {
         return "Greetings from Spring Boot!";
     }
