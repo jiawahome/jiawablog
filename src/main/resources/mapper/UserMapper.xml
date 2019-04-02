@@ -2,7 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jiawablog.mapper.UserMapper" >
 
-    <select id="list" resultType="com.jiawablog.db.User">
+    <resultMap id="result" type="com.jiawa.blog.domain.User">
+        <id column="id" jdbcType="CHAR" property="id" />
+        <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+    </resultMap>
+
+    <resultMap id="resultName" type="com.jiawa.blog.domain.User">
+        <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    </resultMap>
+
+    <!--方法二 映射到resultMap-->
+    <select id="list" resultMap="result">
         select id, login_name, password from `user`
     </select>
+
+    <select id="list2" resultMap="resultName">
+        select login_name from `user`
+    </select>
+
+    <!--方法一直接映射类-->
+    <!--<select id="list" resultType="com.jiawablog.db.User">-->
+        <!--select id, login_name as loginName, password from `user`-->
+    <!--</select>-->
 </mapper>
