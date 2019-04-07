@@ -15,8 +15,19 @@ public class UserController {
     @Resource
     public UserService userService;
 
-    @RequestMapping(name = "/user/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/list", method = RequestMethod.GET)
     public List<User> list() {
         return userService.list();
+    }
+
+    @RequestMapping(value = "/user/create", method = RequestMethod.GET)
+    public int create(User user) {
+        /*
+        User user = new User();
+        user.setId("3333");
+        user.setLoginName("test3");
+        user.setPassword("test3");
+        */
+        return userService.create(user);
     }
 }

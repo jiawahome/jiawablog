@@ -16,4 +16,8 @@ public class UserService {
     public List<User> list() {
         return userMapper.list();
     }
+
+    public int create(User user) {
+        return userMapper.create(user);
+    }
 }

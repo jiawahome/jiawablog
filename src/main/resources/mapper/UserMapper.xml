@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jiawablog.mapper.UserMapper" >
 
-    <resultMap id="result" type="com.jiawa.blog.domain.User">
+    <resultMap id="result" type="com.jiawablog.db.User">
         <id column="id" jdbcType="CHAR" property="id" />
         <result column="login_name" jdbcType="VARCHAR" property="loginName" />
         <result column="password" jdbcType="VARCHAR" property="password" />
     </resultMap>
 
-    <resultMap id="resultName" type="com.jiawa.blog.domain.User">
+    <resultMap id="resultName" type="com.jiawablog.db.User">
         <result column="login_name" jdbcType="VARCHAR" property="loginName" />
     </resultMap>
 
@@ -25,4 +25,8 @@
     <!--<select id="list" resultType="com.jiawablog.db.User">-->
         <!--select id, login_name as loginName, password from `user`-->
     <!--</select>-->
+    
+    <insert id="create" parameterType="com.jiawablog.db.User">
+        INSERT INTO user VALUES (#{id}, #{loginName}, #{password});
+    </insert>
 </mapper>
