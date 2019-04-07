@@ -30,4 +30,14 @@ public class UserController {
         */
         return userService.create(user);
     }
+
+//    @RequestMapping(value = "/user/delete", method = RequestMethod.GET)
+//    public int delete(User user) {
+//        return userService.delete(user);
+//    }
+
+    @RequestMapping(value = "/user/delete", method = RequestMethod.GET)
+    public int delete(String id) {
+        return userService.delete(id);
+    }
 }

@@ -20,4 +20,8 @@ public class UserService {
     public int create(User user) {
         return userMapper.create(user);
     }
+
+    public int delete(String id) {
+        return userMapper.delete(id);
+    }
 }
