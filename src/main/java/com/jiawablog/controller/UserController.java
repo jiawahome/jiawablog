@@ -40,4 +40,9 @@ public class UserController {
     public int delete(String id) {
         return userService.delete(id);
     }
+
+    @RequestMapping(value = "/user/update", method = RequestMethod.GET)
+    public int update(User user) {
+        return userService.update(user);
+    }
 }

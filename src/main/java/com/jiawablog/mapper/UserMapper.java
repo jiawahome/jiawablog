@@ -12,4 +12,6 @@ public interface UserMapper {
     public int create(User user);
 
     public int delete(@Param("id") String userId);
+
+    public int update(User user);
 }

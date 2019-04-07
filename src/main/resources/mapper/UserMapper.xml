@@ -29,8 +29,17 @@
     <insert id="create" parameterType="com.jiawablog.db.User">
         INSERT INTO user VALUES (#{id}, #{loginName}, #{password});
     </insert>
-    
+
+    <!--<delete id="delete" parameterType="com.jiawablog.db.User">-->
+        <!--DELETE FROM user where id = #{id}-->
+    <!--</delete>-->
+
     <delete id="delete">
         DELETE FROM user where id = #{id}
     </delete>
+    
+    <update id="update" parameterType="com.jiawablog.db.User">
+        UPDATE user set login_name = #{loginName}, password = #{password}
+        where id = #{id}
+    </update>
 </mapper>
