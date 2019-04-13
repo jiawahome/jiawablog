@@ -5,7 +5,6 @@
     <id column="id" jdbcType="CHAR" property="id" />
     <result column="login_name" jdbcType="VARCHAR" property="loginName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, login_name, `password`, `name`
+    id, login_name, `password`
   </sql>
   <select id="selectByExample" parameterType="com.jiawablog.db.UserExample" resultMap="BaseResultMap">
     select
@@ -99,10 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jiawablog.db.User">
-    insert into user (id, login_name, `password`, 
-      `name`)
-    values (#{id,jdbcType=CHAR}, #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR})
+    insert into user (id, login_name, `password`
+      )
+    values (#{id,jdbcType=CHAR}, #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jiawablog.db.User">
     insert into user
@@ -116,9 +115,6 @@
       <if test="password != null">
         `password`,
       </if>
-      <if test="name != null">
-        `name`,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -129,9 +125,6 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -153,9 +146,6 @@
       <if test="record.password != null">
         `password` = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -165,8 +155,7 @@
     update user
     set id = #{record.id,jdbcType=CHAR},
       login_name = #{record.loginName,jdbcType=VARCHAR},
-      `password` = #{record.password,jdbcType=VARCHAR},
-      `name` = #{record.name,jdbcType=VARCHAR}
+      `password` = #{record.password,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -180,17 +169,13 @@
       <if test="password != null">
         `password` = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=CHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jiawablog.db.User">
     update user
     set login_name = #{loginName,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
-      `name` = #{name,jdbcType=VARCHAR}
+      `password` = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=CHAR}
   </update>
 </mapper>

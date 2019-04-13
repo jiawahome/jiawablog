@@ -16,11 +16,6 @@ public class User {
      */
     private String password;
 
-    /**
-     * 昵称
-     */
-    private String name;
-
     public String getId() {
         return id;
     }
@@ -45,14 +40,6 @@ public class User {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -62,7 +49,6 @@ public class User {
         sb.append(", id=").append(id);
         sb.append(", loginName=").append(loginName);
         sb.append(", password=").append(password);
-        sb.append(", name=").append(name);
         sb.append("]");
         return sb.toString();
     }
@@ -81,8 +67,7 @@ public class User {
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getLoginName() == null ? other.getLoginName() == null : this.getLoginName().equals(other.getLoginName()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()));
     }
 
     @Override
@@ -92,7 +77,6 @@ public class User {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getLoginName() == null) ? 0 : getLoginName().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         return result;
     }
 }
