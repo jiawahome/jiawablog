@@ -14,18 +14,35 @@ public class UserService {
     public UserMapper userMapper;
 
     public List<User> list() {
-        return userMapper.list();
+        List<User> users = userMapper.selectByExample(null);
+        return users;
     }
 
     public int create(User user) {
-        return userMapper.create(user);
+        return userMapper.insert(user);
     }
 
     public int delete(String id) {
-        return userMapper.delete(id);
+        return userMapper.deleteByPrimaryKey(id);
     }
 
     public int update(User user) {
-        return userMapper.update(user);
+        return userMapper.updateByPrimaryKey(user);
     }
+
+//    public List<User> list() {
+//        return userMapper.list();
+//    }
+//
+//    public int create(User user) {
+//        return userMapper.create(user);
+//    }
+//
+//    public int delete(String id) {
+//        return userMapper.delete(id);
+//    }
+//
+//    public int update(User user) {
+//        return userMapper.update(user);
+//    }
 }

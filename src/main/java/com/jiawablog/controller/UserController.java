@@ -19,7 +19,7 @@ public class UserController {
     public List<User> list() {
         return userService.list();
     }
-
+//
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public int create(User user) {
         /*
