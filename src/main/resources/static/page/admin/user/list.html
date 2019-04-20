@@ -3,10 +3,14 @@
         <th>ID</th>
         <th>用户名</th>
         <th>密码</th>
+        <th>操作</th>
     </tr>
     <tr th:each="u:${list}">
         <td th:text="${u.id}"></td>
         <td th:text="${u.loginName}"></td>
         <td th:text="${u.password}"></td>
+        <td>
+            <button type="button" class="btn btn-primary btn-xs" onclick="onUpdateClick()">修改</button>
+        </td>
     </tr>
 </table>

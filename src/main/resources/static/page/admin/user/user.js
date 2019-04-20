@@ -1,3 +1,10 @@
+/**
+ * 点击修改按钮，弹出用户表单
+ */
+function onUpdateClick() {
+    $('#form-modal').modal("show");
+}
+
 $(function () {
 
     function list() {
