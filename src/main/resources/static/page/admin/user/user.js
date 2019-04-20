@@ -1,7 +1,11 @@
 /**
  * 点击修改按钮，弹出用户表单
  */
-function onUpdateClick() {
+function onUpdateClick(index) {
+    var user = users[index];
+    console.log(user);
+    $("#login-name-input").val(user.loginName);
+    $("#password-input").val(user.password);
     $('#form-modal').modal("show");
 }
 

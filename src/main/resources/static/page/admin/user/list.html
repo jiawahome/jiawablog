@@ -5,12 +5,16 @@
         <th>密码</th>
         <th>操作</th>
     </tr>
-    <tr th:each="u:${list}">
+    <tr th:each="u, stat:${list}">
         <td th:text="${u.id}"></td>
         <td th:text="${u.loginName}"></td>
         <td th:text="${u.password}"></td>
         <td>
-            <button type="button" class="btn btn-primary btn-xs" onclick="onUpdateClick()">修改</button>
+            <button type="button" class="btn btn-primary btn-xs" th:onclick="'javascript:onUpdateClick(' + ${stat.index} + ')'">修改</button>
         </td>
     </tr>
 </table>
+<script th:inline="javascript">
+    var users = [[${list}]];
+    console.log(users);
+</script>
