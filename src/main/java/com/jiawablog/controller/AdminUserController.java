@@ -5,6 +5,8 @@ import com.jiawablog.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,5 +27,12 @@ public class AdminUserController {
         List<User> userList = userService.list();
         model.addAttribute("list", userList);
         return "admin/user/list";
+    }
+
+    @PostMapping("/admin/user/update")
+    @ResponseBody
+    private String update(User user) {
+        userService.update(user);
+        return "success";
     }
 }

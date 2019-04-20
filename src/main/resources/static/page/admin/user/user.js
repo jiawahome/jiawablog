@@ -4,6 +4,7 @@
 function onUpdateClick(index) {
     var user = users[index];
     console.log(user);
+    $("#id-input").val(user.id);
     $("#login-name-input").val(user.loginName);
     $("#password-input").val(user.password);
     $('#form-modal').modal("show");
