@@ -1,12 +1,12 @@
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" xmlns:th="http://www.w3.org/1999/xhtml">
     <tr>
         <th>ID</th>
         <th>用户名</th>
         <th>密码</th>
     </tr>
-    <tr>
-        <td>1111</td>
-        <td>test</td>
-        <td>test</td>
+    <tr th:each="u:${list}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.loginName}"></td>
+        <td th:text="${u.password}"></td>
     </tr>
 </table>
