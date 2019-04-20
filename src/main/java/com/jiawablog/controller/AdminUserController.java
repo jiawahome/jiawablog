@@ -1,6 +1,6 @@
 package com.jiawablog.controller;
 
-import com.jiawablog.db.User;
+import com.jiawablog.dto.UserDto;
 import com.jiawablog.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,15 +24,15 @@ public class AdminUserController {
 
     @GetMapping("/admin/user/list")
     private String list(Model model) {
-        List<User> userList = userService.list();
+        List<UserDto> userList = userService.list();
         model.addAttribute("list", userList);
         return "admin/user/list";
     }
 
     @PostMapping("/admin/user/update")
     @ResponseBody
-    private String update(User user) {
-        userService.update(user);
+    private String update(UserDto userDto) {
+        userService.update(userDto);
         return "success";
     }
 }
