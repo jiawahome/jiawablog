@@ -62,26 +62,24 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">用户管理</h4>
             </div>
-            <form action="/admin/user/update" method="post">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>ID</label>
-                        <input id="id-input" name="id" type="text" class="form-control" placeholder="ID">
-                    </div>
-                    <div class="form-group">
-                        <label>用户名</label>
-                        <input id="login-name-input" name="loginName" type="text" class="form-control" placeholder="用户名">
-                    </div>
-                    <div class="form-group">
-                        <label>密码</label>
-                        <input id="password-input" name="password" type="password" class="form-control" placeholder="密码">
-                    </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input id="id-input" name="id" type="text" class="form-control" placeholder="ID">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="submit" class="btn btn-primary">保存</button>
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input id="login-name-input" name="loginName" type="text" class="form-control" placeholder="用户名">
                 </div>
-            </form>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input id="password-input" name="password" type="password" class="form-control" placeholder="密码">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="onSaveClick()">保存</button>
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

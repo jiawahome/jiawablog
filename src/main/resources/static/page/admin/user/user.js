@@ -1,4 +1,18 @@
 /**
+ * 查询用户列表
+ */
+function list() {
+    console.log("list");
+    $.ajax({
+        type: "get",
+        url: "/admin/user/list",
+        success: function (data) {
+            $("#user-list").html(data);
+        }
+    })
+}
+
+/**
  * 点击修改按钮，弹出用户表单
  */
 function onUpdateClick(index) {
@@ -10,18 +24,31 @@ function onUpdateClick(index) {
     $('#form-modal').modal("show");
 }
 
-$(function () {
+/**
+ * 点击表单保存按钮时的动作
+ */
+function onSaveClick() {
+    var id = $("#id-input").val();
+    var loginName = $("#login-name-input").val();
+    var password = $("#password-input").val();
 
-    function list() {
-        console.log("list");
-        $.ajax({
-            type: "get",
-            url: "/admin/user/list",
-            success: function (data) {
-                $("#user-list").html(data);
-            }
-        })
-    }
+    $.ajax({
+        type: "post",
+        url: "/admin/user/update",
+        data: {
+            id: id,
+            loginName: loginName,
+            password: password
+        },
+        success: function (data) {
+            console.log("save success");
+            $('#form-modal').modal("hide");
+            list();
+        }
+    })
+}
+
+$(function () {
 
     list();
 
