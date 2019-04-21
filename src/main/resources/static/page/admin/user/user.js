@@ -69,6 +69,13 @@ function onDeleteClick(id) {
     })
 }
 
+/**
+ * 点击新增按钮
+ */
+function onAddClick() {
+    $('#form-modal').modal("show");
+}
+
 $(function () {
 
     list();

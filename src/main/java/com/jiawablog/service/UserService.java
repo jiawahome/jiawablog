@@ -42,7 +42,11 @@ public class UserService {
         user.setId(userDto.getId());
         user.setLoginName(userDto.getLoginName());
         user.setPassword(userDto.getPassword());
-        return userMapper.updateByPrimaryKey(user);
+        int i = userMapper.updateByPrimaryKey(user);
+        if (i == 0) {
+            i = this.create(user);
+        }
+        return i;
     }
 
 //    public List<User> list() {
