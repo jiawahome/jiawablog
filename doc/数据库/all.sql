@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` CHAR(8) NOT NULL DEFAULT '' COMMENT 'ID',
+  `id` VARCHAR(50) NOT NULL DEFAULT '' COMMENT 'ID',
   `login_name` VARCHAR(50) NOT NULL COMMENT '登陆名',
   `password` VARCHAR(50) NOT NULL COMMENT '密码',
   PRIMARY KEY (`id`)

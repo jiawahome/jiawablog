@@ -73,6 +73,9 @@ function onDeleteClick(id) {
  * 点击新增按钮
  */
 function onAddClick() {
+    $("#id-input").val(null);
+    $("#login-name-input").val(null);
+    $("#password-input").val(null);
     $('#form-modal').modal("show");
 }
 

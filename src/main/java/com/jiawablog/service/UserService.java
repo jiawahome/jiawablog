@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -44,6 +45,8 @@ public class UserService {
         user.setPassword(userDto.getPassword());
         int i = userMapper.updateByPrimaryKey(user);
         if (i == 0) {
+            String id = UUID.randomUUID().toString();
+            user.setId(id);
             i = this.create(user);
         }
         return i;
