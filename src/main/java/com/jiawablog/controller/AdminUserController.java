@@ -4,9 +4,7 @@ import com.jiawablog.dto.UserDto;
 import com.jiawablog.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -33,6 +31,20 @@ public class AdminUserController {
     @ResponseBody
     private String update(UserDto userDto) {
         userService.update(userDto);
+        return "success";
+    }
+
+    /**
+     * restful风格
+     * xxx/delete?id=xxx
+     * xxx/delete/xxx
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/admin/user/delete/{id}")
+    @ResponseBody
+    private String delete(@PathVariable String id) {
+        userService.delete(id);
         return "success";
     }
 }
