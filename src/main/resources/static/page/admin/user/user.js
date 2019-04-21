@@ -18,6 +18,7 @@ function list() {
 function onUpdateClick(index) {
     var user = users[index];
     console.log(user);
+    $("#login-name-input").attr("disabled", true);
     $("#id-input").val(user.id);
     $("#login-name-input").val(user.loginName);
     $("#password-input").val(user.password);
@@ -41,9 +42,13 @@ function onSaveClick() {
             password: password
         },
         success: function (data) {
-            console.log("save success");
-            $('#form-modal').modal("hide");
-            list();
+            if (data == "exist") {
+                alert("用户名已存在");
+            } else {
+                console.log("save success");
+                $('#form-modal').modal("hide");
+                list();
+            }
         }
     })
 }
@@ -73,6 +78,7 @@ function onDeleteClick(id) {
  * 点击新增按钮
  */
 function onAddClick() {
+    $("#login-name-input").removeAttr("disabled");
     $("#id-input").val(null);
     $("#login-name-input").val(null);
     $("#password-input").val(null);

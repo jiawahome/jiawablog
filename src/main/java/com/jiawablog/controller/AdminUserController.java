@@ -30,7 +30,10 @@ public class AdminUserController {
     @PostMapping("/admin/user/save")
     @ResponseBody
     private String save(UserDto userDto) {
-        userService.save(userDto);
+        int i = userService.save(userDto);
+        if (i == -1) {
+            return "exist";
+        }
         return "success";
     }
 

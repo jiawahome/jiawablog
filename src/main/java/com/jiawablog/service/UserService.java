@@ -1,6 +1,7 @@
 package com.jiawablog.service;
 
 import com.jiawablog.db.User;
+import com.jiawablog.db.UserExample;
 import com.jiawablog.dto.UserDto;
 import com.jiawablog.mapper.UserMapper;
 import com.jiawablog.util.UuidUtil;
@@ -38,6 +39,12 @@ public class UserService {
         return userMapper.deleteByPrimaryKey(id);
     }
 
+    /**
+     * 保存用户
+     * 当返回-1时，表示用户名已存在
+     * @param userDto
+     * @return
+     */
     public int save(UserDto userDto) {
         User user = new User();
         user.setId(userDto.getId());
@@ -45,12 +52,30 @@ public class UserService {
         user.setPassword(userDto.getPassword());
         int i = userMapper.updateByPrimaryKey(user);
         if (i == 0) {
-//            String id = UUID.randomUUID().toString().replace("-", "");
-            String id = UuidUtil.uuid();
-            user.setId(id);
-            i = this.create(user);
+            // 校验用户名是否存在
+            User userDb = this.selectByLoginName(user.getLoginName());
+            if (userDb != null) {
+                return -1;
+            } else {
+                // 用户名不存在
+                //  String id = UUID.randomUUID().toString().replace("-", "");
+                String id = UuidUtil.uuid();
+                user.setId(id);
+                i = this.create(user);
+            }
         }
         return i;
+    }
+
+    public User selectByLoginName(String loginName) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andLoginNameEqualTo(loginName);
+        List<User> userList = userMapper.selectByExample(userExample);
+        if (userList.size() > 0) {
+            return userList.get(0);
+        } else {
+            return null;
+        }
     }
 
 //    public List<User> list() {
