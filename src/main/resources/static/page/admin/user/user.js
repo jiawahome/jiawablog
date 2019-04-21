@@ -34,7 +34,7 @@ function onSaveClick() {
 
     $.ajax({
         type: "post",
-        url: "/admin/user/update",
+        url: "/admin/user/save",
         data: {
             id: id,
             loginName: loginName,

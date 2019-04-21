@@ -27,10 +27,10 @@ public class AdminUserController {
         return "admin/user/list";
     }
 
-    @PostMapping("/admin/user/update")
+    @PostMapping("/admin/user/save")
     @ResponseBody
-    private String update(UserDto userDto) {
-        userService.update(userDto);
+    private String save(UserDto userDto) {
+        userService.save(userDto);
         return "success";
     }
 

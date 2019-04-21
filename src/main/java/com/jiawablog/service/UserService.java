@@ -3,12 +3,12 @@ package com.jiawablog.service;
 import com.jiawablog.db.User;
 import com.jiawablog.dto.UserDto;
 import com.jiawablog.mapper.UserMapper;
+import com.jiawablog.util.UuidUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class UserService {
@@ -38,14 +38,15 @@ public class UserService {
         return userMapper.deleteByPrimaryKey(id);
     }
 
-    public int update(UserDto userDto) {
+    public int save(UserDto userDto) {
         User user = new User();
         user.setId(userDto.getId());
         user.setLoginName(userDto.getLoginName());
         user.setPassword(userDto.getPassword());
         int i = userMapper.updateByPrimaryKey(user);
         if (i == 0) {
-            String id = UUID.randomUUID().toString();
+//            String id = UUID.randomUUID().toString().replace("-", "");
+            String id = UuidUtil.uuid();
             user.setId(id);
             i = this.create(user);
         }
