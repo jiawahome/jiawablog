@@ -48,6 +48,13 @@ function onSaveClick() {
     })
 }
 
+/**
+ * 点击刷新按钮
+ */
+function onRefreshClick() {
+    list();
+}
+
 $(function () {
 
     list();
