@@ -3,6 +3,13 @@ function activeSidebar(id) {
     $("#" + id).addClass("active");
 }
 
+function showConfirmModal(message) {
+    if (message) {
+        $("#confirm-message").text(message);
+    }
+    $('#confirm-modal').modal("show");
+}
+
 $(function () {
     var str = window.location.href;
     var index = str .lastIndexOf("\/");

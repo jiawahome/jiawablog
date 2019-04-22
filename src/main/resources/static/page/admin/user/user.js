@@ -64,14 +64,15 @@ function onRefreshClick() {
  * 点击删除按钮
  */
 function onDeleteClick(id) {
-    $.ajax({
-        type: "delete",
-        url: "/admin/user/delete/" + id,
-        success: function (data) {
-            console.log("delete success");
-            list();
-        }
-    })
+    showConfirmModal("确认删除用户？");
+    // $.ajax({
+    //     type: "delete",
+    //     url: "/admin/user/delete/" + id,
+    //     success: function (data) {
+    //         console.log("delete success");
+    //         list();
+    //     }
+    // })
 }
 
 /**
