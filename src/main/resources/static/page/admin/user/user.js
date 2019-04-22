@@ -87,6 +87,11 @@ function onAddClick() {
 
 $(function () {
 
+    // $("#welcome-sidebar").removeClass("active");
+    // $("#article-sidebar").removeClass("active");
+    // $("#type-sidebar").removeClass("active");
+    // $("#user-sidebar").addClass("active");
+    // activeSidebar("user-sidebar");
     list();
 
 });
