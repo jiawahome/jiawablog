@@ -3,11 +3,31 @@ function activeSidebar(id) {
     $("#" + id).addClass("active");
 }
 
-function showConfirmModal(message) {
+/**
+ * 显示确认框
+ * @param message
+ */
+function showConfirmModal(message, func) {
     if (message) {
         $("#confirm-message").text(message);
     }
     $('#confirm-modal').modal("show");
+
+    if (func){
+        afterConfirm = func;
+    }
+}
+
+/**
+ * 点击确认
+ */
+function confirm() {
+    $('#confirm-modal').modal("hide");
+    afterConfirm();
+}
+
+function afterConfirm() {
+    
 }
 
 $(function () {
