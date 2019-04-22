@@ -43,7 +43,7 @@ function onSaveClick() {
         },
         success: function (data) {
             if (data == "exist") {
-                alert("用户名已存在");
+                showAlertModal("用户名已存在");
             } else {
                 console.log("save success");
                 $('#form-modal').modal("hide");

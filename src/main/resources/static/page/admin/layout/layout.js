@@ -30,6 +30,17 @@ function afterConfirm() {
     
 }
 
+/**
+ * 显示提示框
+ * @param message
+ */
+function showAlertModal(message) {
+    if (message) {
+        $("#alert-message").text(message);
+    }
+    $('#alert-modal').modal("show");
+}
+
 $(function () {
     var str = window.location.href;
     var index = str .lastIndexOf("\/");
