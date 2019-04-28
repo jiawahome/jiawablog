@@ -41,6 +41,14 @@ function showAlertModal(message) {
     $('#alert-modal').modal("show");
 }
 
+function showLoadingModal() {
+    $('#loading-modal').modal("show");
+}
+
+function hideLoadingModal() {
+    $('#loading-modal').modal("hide");
+}
+
 $(function () {
     var str = window.location.href;
     var index = str .lastIndexOf("\/");

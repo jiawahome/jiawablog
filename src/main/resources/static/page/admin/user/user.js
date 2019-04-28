@@ -2,12 +2,16 @@
  * 查询用户列表
  */
 function list() {
+    showLoadingModal();
     console.log("list");
     $.ajax({
         type: "get",
         url: "/admin/user/list",
         success: function (data) {
             $("#user-list").html(data);
+            setTimeout(function () {
+                hideLoadingModal();
+            }, 2000);
         }
     })
 }
