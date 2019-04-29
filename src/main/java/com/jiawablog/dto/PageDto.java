@@ -31,4 +31,14 @@ public class PageDto {
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("PageDto{");
+        sb.append("cur=").append(cur);
+        sb.append(", pageSize=").append(pageSize);
+        sb.append(", count=").append(count);
+        sb.append('}');
+        return sb.toString();
+    }
 }

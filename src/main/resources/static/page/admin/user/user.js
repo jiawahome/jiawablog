@@ -6,6 +6,10 @@ function list() {
     console.log("list");
     $.ajax({
         type: "get",
+        data: {
+            cur: 1,
+            pageSize: 4
+        },
         url: "/admin/user/list",
         success: function (data) {
             $("#user-list").html(data);

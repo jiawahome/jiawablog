@@ -3,6 +3,8 @@ package com.jiawablog.controller;
 import com.jiawablog.dto.PageDto;
 import com.jiawablog.dto.UserDto;
 import com.jiawablog.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,8 @@ import java.util.List;
 @Controller
 public class AdminUserController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(AdminUserController.class);
+
     @Resource
     private UserService userService;
 
@@ -22,13 +26,11 @@ public class AdminUserController {
     }
 
     @GetMapping("/admin/user/list")
-    private String list(Model model) {
+    private String list(Model model, PageDto pageDto) {
+        LOG.info("用户列表查询开始：{}", pageDto.toString());
         List<UserDto> userList = userService.list();
         model.addAttribute("list", userList);
 
-        PageDto pageDto = new PageDto();
-        pageDto.setCur(1);
-        pageDto.setPageSize(3);
         pageDto.setCount(10);
         model.addAttribute("page", pageDto);
         return "admin/user/list";
