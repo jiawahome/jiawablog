@@ -52,7 +52,10 @@ function hideLoadingModal() {
 /**
  * 渲染分页组件
  */
-function renderPagination(pageOption) {
+function renderPagination(pageOption, callback) {
+    if ($("#pagination").attr("data-pagination")) {
+        return;
+    }
     $("#pagination").pagination({
         maxSize: 10,
         page: pageOption.cur,
@@ -63,6 +66,9 @@ function renderPagination(pageOption) {
         prevText: '<',
         nextText: '>',
         // btnSize: 'lg'
+    }).onChangePage(function (e) {
+        cur = e.page;
+        callback();
     });
 }
 

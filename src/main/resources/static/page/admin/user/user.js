@@ -1,3 +1,4 @@
+cur = 1;
 /**
  * 查询用户列表
  */
@@ -7,14 +8,14 @@ function list() {
     $.ajax({
         type: "get",
         data: {
-            cur: 1,
-            pageSize: 1
+            cur: cur,
+            pageSize: 2
         },
         url: "/admin/user/list",
         success: function (data) {
             $("#user-list").html(data);
 
-            renderPagination(page);
+            renderPagination(page, list);
             setTimeout(function () {
                 hideLoadingModal();
             }, 1000);
