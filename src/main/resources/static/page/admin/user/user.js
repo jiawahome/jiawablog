@@ -10,7 +10,7 @@ function list() {
         success: function (data) {
             $("#user-list").html(data);
 
-            renderPagination();
+            renderPagination(page);
             setTimeout(function () {
                 hideLoadingModal();
             }, 1000);

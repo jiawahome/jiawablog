@@ -1,5 +1,6 @@
 package com.jiawablog.controller;
 
+import com.jiawablog.dto.PageDto;
 import com.jiawablog.dto.UserDto;
 import com.jiawablog.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,12 @@ public class AdminUserController {
     private String list(Model model) {
         List<UserDto> userList = userService.list();
         model.addAttribute("list", userList);
+
+        PageDto pageDto = new PageDto();
+        pageDto.setCur(1);
+        pageDto.setPageSize(3);
+        pageDto.setCount(10);
+        model.addAttribute("page", pageDto);
         return "admin/user/list";
     }
 

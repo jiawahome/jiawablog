@@ -52,12 +52,12 @@ function hideLoadingModal() {
 /**
  * 渲染分页组件
  */
-function renderPagination() {
+function renderPagination(pageOption) {
     $("#pagination").pagination({
         maxSize: 10,
-        page: 3,
-        totals: 50,
-        pageSize: 3,
+        page: pageOption.cur,
+        totals: pageOption.count,
+        pageSize: pageOption.pageSize,
         lastText: '>>',
         firstText: '<<',
         prevText: '<',
