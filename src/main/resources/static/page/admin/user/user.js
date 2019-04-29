@@ -8,7 +8,7 @@ function list() {
         type: "get",
         data: {
             cur: 1,
-            pageSize: 4
+            pageSize: 1
         },
         url: "/admin/user/list",
         success: function (data) {

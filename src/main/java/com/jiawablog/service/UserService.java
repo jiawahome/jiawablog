@@ -1,7 +1,10 @@
 package com.jiawablog.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.jiawablog.db.User;
 import com.jiawablog.db.UserExample;
+import com.jiawablog.dto.PageDto;
 import com.jiawablog.dto.UserDto;
 import com.jiawablog.mapper.UserMapper;
 import com.jiawablog.util.UuidUtil;
@@ -17,9 +20,15 @@ public class UserService {
     @Resource
     public UserMapper userMapper;
 
-    public List<UserDto> list() {
+    public List<UserDto> list(PageDto pageDto) {
+        // 只对第一个查询语句有效
+        PageHelper.startPage(pageDto.getCur(), pageDto.getPageSize());
         List<UserDto> userDtoList = new ArrayList<>();
         List<User> users = userMapper.selectByExample(null);
+        PageInfo<User> pageInfo = new PageInfo<>(users);
+        long count = pageInfo.getTotal(); // 得到总行数
+        pageDto.setCount(count);
+
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
             UserDto userDto = new UserDto();

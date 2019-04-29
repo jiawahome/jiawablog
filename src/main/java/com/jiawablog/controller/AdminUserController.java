@@ -28,11 +28,11 @@ public class AdminUserController {
     @GetMapping("/admin/user/list")
     private String list(Model model, PageDto pageDto) {
         LOG.info("用户列表查询开始：{}", pageDto.toString());
-        List<UserDto> userList = userService.list();
+        List<UserDto> userList = userService.list(pageDto);
         model.addAttribute("list", userList);
-
-        pageDto.setCount(10);
         model.addAttribute("page", pageDto);
+
+        LOG.info("用户列表查询结束：{}", pageDto);
         return "admin/user/list";
     }
 

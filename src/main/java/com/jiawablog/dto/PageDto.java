@@ -6,7 +6,7 @@ public class PageDto {
 
     private int pageSize;
 
-    private int count;
+    private long count;
 
     public int getCur() {
         return cur;
@@ -24,11 +24,11 @@ public class PageDto {
         this.pageSize = pageSize;
     }
 
-    public int getCount() {
+    public long getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(long count) {
         this.count = count;
     }
 
