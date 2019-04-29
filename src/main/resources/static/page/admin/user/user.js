@@ -9,9 +9,11 @@ function list() {
         url: "/admin/user/list",
         success: function (data) {
             $("#user-list").html(data);
+
+            renderPagination();
             setTimeout(function () {
                 hideLoadingModal();
-            }, 2000);
+            }, 1000);
         }
     })
 }

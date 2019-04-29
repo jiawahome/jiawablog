@@ -49,6 +49,23 @@ function hideLoadingModal() {
     $('#loading-modal').modal("hide");
 }
 
+/**
+ * 渲染分页组件
+ */
+function renderPagination() {
+    $("#pagination").pagination({
+        maxSize: 10,
+        page: 3,
+        totals: 50,
+        pageSize: 3,
+        lastText: '>>',
+        firstText: '<<',
+        prevText: '<',
+        nextText: '>',
+        // btnSize: 'lg'
+    });
+}
+
 $(function () {
     var str = window.location.href;
     var index = str .lastIndexOf("\/");
