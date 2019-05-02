@@ -2,9 +2,11 @@ package com.jiawablog.controller;
 
 import com.jiawablog.dto.ArticleDto;
 import com.jiawablog.dto.CategoryDto;
+import com.jiawablog.dto.OptionDto;
 import com.jiawablog.dto.PageDto;
 import com.jiawablog.service.ArticleService;
 import com.jiawablog.service.CategoryService;
+import com.jiawablog.util.OptionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,10 @@ public class AdminArticleController {
     private String article(Model model) {
         List<CategoryDto> categoryDtoList = categoryService.all();
         model.addAttribute("categorys", categoryDtoList);
+
+        List<OptionDto> optionDtoList = OptionUtil.getStatusOption();
+        model.addAttribute("statuss", optionDtoList);
+
         return "admin/article/article";
     }
 
@@ -41,6 +47,9 @@ public class AdminArticleController {
 
         List<CategoryDto> categoryDtoList = categoryService.all();
         model.addAttribute("categorys", categoryDtoList);
+
+        List<OptionDto> optionDtoList = OptionUtil.getStatusOption();
+        model.addAttribute("statuss", optionDtoList);
 
         LOG.info("文章列表查询结束：{}", pageDto);
         return "admin/article/list";

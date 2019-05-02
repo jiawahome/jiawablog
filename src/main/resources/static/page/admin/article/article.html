@@ -43,8 +43,9 @@
                         <div class="form-group">
                             <label>状态</label>
                             <select id="status-input" name="status" type="text" class="form-control" placeholder="状态">
-                                <option value="P">发布</option>
-                                <option value="D">草稿</option>
+                                <!--<option value="P">发布</option>-->
+                                <!--<option value="D">草稿</option>-->
+                                <option th:each="s:${statuss}" th:value="${s.key}" th:text="${s.value}"></option>
                             </select>
                         </div>
                     </div>
