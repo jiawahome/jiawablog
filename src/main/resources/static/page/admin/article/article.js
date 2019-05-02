@@ -30,7 +30,10 @@ function onUpdateClick(index) {
     var article = articles[index];
     console.log(article);
     $("#id-input").val(article.id);
-    $("#name-input").val(article.name);
+    $("#title-input").val(article.title);
+    $("#category-id-input").val(article.categoryId);
+    $("#summary-input").val(article.summary);
+    $("#status-input").val(article.status);
     $('#form-modal').modal("show");
 }
 
@@ -39,14 +42,20 @@ function onUpdateClick(index) {
  */
 function onSaveClick() {
     var id = $("#id-input").val();
-    var name = $("#name-input").val();
+    var title = $("#title-input").val();
+    var categoryId = $("#category-id-input").val();
+    var summary = $("#summary-input").val();
+    var status = $("#status-input").val();
 
     $.ajax({
         type: "post",
         url: "/admin/article/save",
         data: {
             id: id,
-            name: name
+            title: title,
+            categoryId: categoryId,
+            summary: summary,
+            status: status
         },
         success: function (data) {
             if (data == "exist") {
@@ -89,17 +98,15 @@ function onDeleteClick(id) {
  */
 function onAddClick() {
     $("#id-input").val(null);
-    $("#name-input").val(null);
+    $("#title-input").val(null);
+    $("#category-id-input").val(null);
+    $("#summary-input").val(null);
+    $("#status-input").val(null);
     $('#form-modal').modal("show");
 }
 
 $(function () {
 
-    // $("#welcome-sidebar").removeClass("active");
-    // $("#article-sidebar").removeClass("active");
-    // $("#type-sidebar").removeClass("active");
-    // $("#article-sidebar").addClass("active");
-    // activeSidebar("article-sidebar");
     list();
 
 });
