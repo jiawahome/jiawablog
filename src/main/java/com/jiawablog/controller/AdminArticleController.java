@@ -39,6 +39,9 @@ public class AdminArticleController {
         model.addAttribute("list", articleList);
         model.addAttribute("page", pageDto);
 
+        List<CategoryDto> categoryDtoList = categoryService.all();
+        model.addAttribute("categorys", categoryDtoList);
+
         LOG.info("文章列表查询结束：{}", pageDto);
         return "admin/article/list";
     }

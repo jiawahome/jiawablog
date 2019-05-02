@@ -11,7 +11,8 @@
     <tr th:each="o, stat:${list}">
         <td th:text="${o.id}"></td>
         <td th:text="${o.title}"></td>
-        <td class="categoryTd" th:text="${o.categoryId}"></td>
+        <!--<td class="categoryTd" th:text="${o.categoryId}"></td>-->
+        <td th:each="c, s:${categorys}" th:if="${o.categoryId == c.id}" th:text="${c.name}"></td>
         <td th:text="${o.summary}"></td>
         <td th:text="${o.status == 'P' ? '发布' : '草稿'}"></td>
         <td th:text="${#dates.format(o.at, 'yyyy-MM-dd HH:mm:ss')}"></td>
@@ -26,16 +27,16 @@
     var page = [[${page}]];
     console.log(articles);
 
-    $(function () {
-        // console.log(categorys)
-        $(".categoryTd").each(function(i,element) {
-            console.log(i, element);
-            var categoryId = element.innerText;
-
-            var category = categorys.filter(function(item) {
-                return item.id == categoryId
-            })[0];
-            element.innerText = category ? category.name : '未分类';
-        })
-    });
+    // $(function () {
+    //     // console.log(categorys)
+    //     $(".categoryTd").each(function(i,element) {
+    //         console.log(i, element);
+    //         var categoryId = element.innerText;
+    //
+    //         var category = categorys.filter(function(item) {
+    //             return item.id == categoryId
+    //         })[0];
+    //         element.innerText = category ? category.name : '未分类';
+    //     })
+    // });
 </script>
