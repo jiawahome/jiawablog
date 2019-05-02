@@ -13,7 +13,7 @@
         <td th:text="${o.title}"></td>
         <td th:text="${o.categoryId}"></td>
         <td th:text="${o.summary}"></td>
-        <td th:text="${o.status}"></td>
+        <td th:text="${o.status == 'P' ? '发布' : '草稿'}"></td>
         <td th:text="${#dates.format(o.at, 'yyyy-MM-dd HH:mm:ss')}"></td>
         <td>
             <button type="button" class="btn btn-primary btn-xs" th:onclick="'javascript:onUpdateClick(' + ${stat.index} + ')'">修改</button>
