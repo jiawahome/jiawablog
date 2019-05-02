@@ -15,7 +15,7 @@
         <td th:text="${o.status}"></td>
         <td>
             <button type="button" class="btn btn-primary btn-xs" th:onclick="'javascript:onUpdateClick(' + ${stat.index} + ')'">修改</button>
-            <button type="button" class="btn btn-danger btn-xs" th:onclick="'javascript:onDeleteClick(\'' + ${u.id} + '\')'">删除</button>
+            <button type="button" class="btn btn-danger btn-xs" th:onclick="'javascript:onDeleteClick(\'' + ${o.id} + '\')'">删除</button>
         </td>
     </tr>
 </table>
