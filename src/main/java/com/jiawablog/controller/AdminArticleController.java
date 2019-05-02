@@ -1,8 +1,10 @@
 package com.jiawablog.controller;
 
 import com.jiawablog.dto.ArticleDto;
+import com.jiawablog.dto.CategoryDto;
 import com.jiawablog.dto.PageDto;
 import com.jiawablog.service.ArticleService;
+import com.jiawablog.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,13 @@ public class AdminArticleController {
     @Resource
     private ArticleService articleService;
 
+    @Resource
+    private CategoryService categoryService;
+
     @GetMapping("/admin/article")
-    private String article() {
+    private String article(Model model) {
+        List<CategoryDto> categoryDtoList = categoryService.all();
+        model.addAttribute("categorys", categoryDtoList);
         return "admin/article/article";
     }
 

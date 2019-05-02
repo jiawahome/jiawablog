@@ -31,8 +31,10 @@
                             <input id="title-input" name="name" type="text" class="form-control" placeholder="标题">
                         </div>
                         <div class="form-group">
-                            <label>类别</label>
-                            <input id="category-id-input" name="categoryId" type="text" class="form-control" placeholder="类别">
+                            <label>分类</label>
+                            <select id="category-id-input" name="categoryId" type="text" class="form-control" placeholder="类别">
+                                <option th:each="o, stat:${categorys}" th:value="${o.id}" th:text="${o.name}"></option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>概述</label>
@@ -56,3 +58,6 @@
     </div>
 </html>
 <script src="/static/page/admin/article/article.js"></script>
+<script th:inline="javascript">
+    var categorys = [[${categorys}]];
+</script>

@@ -7,6 +7,7 @@ import com.jiawablog.dto.CategoryDto;
 import com.jiawablog.dto.PageDto;
 import com.jiawablog.mapper.CategoryMapper;
 import com.jiawablog.util.UuidUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,6 +19,23 @@ public class CategoryService {
 
     @Resource
     public CategoryMapper categoryMapper;
+
+    /**
+     * 查出所有的分类
+     * @return
+     */
+    public List<CategoryDto> all() {
+        List<CategoryDto> categoryDtoList = new ArrayList<>();
+        List<Category> categorys = categoryMapper.selectByExample(null);
+
+        for (int i = 0; i < categorys.size(); i++) {
+            Category category = categorys.get(i);
+            CategoryDto categoryDto = new CategoryDto();
+            BeanUtils.copyProperties(category, categoryDto);
+            categoryDtoList.add(categoryDto);
+        }
+        return categoryDtoList;
+    }
 
     public List<CategoryDto> list(PageDto pageDto) {
         // 只对第一个查询语句有效

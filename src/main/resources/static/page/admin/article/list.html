@@ -2,7 +2,7 @@
     <tr>
         <th>ID</th>
         <th>标题</th>
-        <th>类别</th>
+        <th>分类</th>
         <th>概述</th>
         <th>状态</th>
         <th>时间</th>
@@ -11,7 +11,7 @@
     <tr th:each="o, stat:${list}">
         <td th:text="${o.id}"></td>
         <td th:text="${o.title}"></td>
-        <td th:text="${o.categoryId}"></td>
+        <td class="categoryTd" th:text="${o.categoryId}"></td>
         <td th:text="${o.summary}"></td>
         <td th:text="${o.status == 'P' ? '发布' : '草稿'}"></td>
         <td th:text="${#dates.format(o.at, 'yyyy-MM-dd HH:mm:ss')}"></td>
@@ -25,4 +25,17 @@
     var articles = [[${list}]];
     var page = [[${page}]];
     console.log(articles);
+
+    $(function () {
+        // console.log(categorys)
+        $(".categoryTd").each(function(i,element) {
+            console.log(i, element);
+            var categoryId = element.innerText;
+
+            var category = categorys.filter(function(item) {
+                return item.id == categoryId
+            })[0];
+            element.innerText = category ? category.name : '未分类';
+        })
+    });
 </script>
