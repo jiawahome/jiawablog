@@ -30,6 +30,7 @@
 
         <javaClientGenerator targetPackage="com.jiawablog.mapper" targetProject="src\main\java" type="XMLMAPPER" />
 
-        <table tableName="user" domainObjectName="User" />
+        <!--<table tableName="user" domainObjectName="User" />-->
+        <table tableName="category" domainObjectName="Category" />
     </context>
 </generatorConfiguration>

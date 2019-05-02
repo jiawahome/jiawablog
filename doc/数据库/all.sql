@@ -7,3 +7,10 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
 INSERT INTO  `user` VALUES ('1111', 'test', 'test');
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
+  `id` CHAR(32) NOT NULL DEFAULT '' COMMENT 'ID',
+  `name` VARCHAR(50) NOT NULL COMMENT '分类名称：JAVA；后端技术；前端技术',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='分类表';
