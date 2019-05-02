@@ -1,0 +1,20 @@
+<table class="table table-striped table-bordered" xmlns:th="http://www.w3.org/1999/xhtml">
+    <tr>
+        <th>ID</th>
+        <th>文章名</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="u, stat:${list}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.name}"></td>
+        <td>
+            <button type="button" class="btn btn-primary btn-xs" th:onclick="'javascript:onUpdateClick(' + ${stat.index} + ')'">修改</button>
+            <button type="button" class="btn btn-danger btn-xs" th:onclick="'javascript:onDeleteClick(\'' + ${u.id} + '\')'">删除</button>
+        </td>
+    </tr>
+</table>
+<script th:inline="javascript">
+    var articles = [[${list}]];
+    var page = [[${page}]];
+    console.log(articles);
+</script>

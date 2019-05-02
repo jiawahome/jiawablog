@@ -1,0 +1,43 @@
+<html xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{/admin/layout/layout}">
+
+    <div layout:fragment="content">
+        <h1 class="page-header">文章管理</h1>
+
+        <p>
+            <button type="button" class="btn btn-primary" onclick="onRefreshClick()">刷新</button>
+            <button type="button" class="btn btn-primary" onclick="onAddClick()">新增</button>
+        </p>
+
+        <div id="pagination"></div>
+
+        <div id="article-list"></div>
+
+
+        <div id="form-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">文章管理</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group" hidden>
+                            <label>ID</label>
+                            <input id="id-input" name="id" type="text" class="form-control" placeholder="ID">
+                        </div>
+                        <div class="form-group">
+                            <label>文章名</label>
+                            <input id="name-input" name="name" type="text" class="form-control" placeholder="文章名">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="onSaveClick()">保存</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+</html>
+<script src="/static/page/admin/article/article.js"></script>
