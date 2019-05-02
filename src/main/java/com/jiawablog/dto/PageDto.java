@@ -2,42 +2,42 @@ package com.jiawablog.dto;
 
 public class PageDto {
 
-    private int cur;
+    private int current;
 
-    private int pageSize;
+    private int size;
 
-    private long count;
+    private long total;
 
-    public int getCur() {
-        return cur;
+    public int getCurrent() {
+        return current;
     }
 
-    public void setCur(int cur) {
-        this.cur = cur;
+    public void setCurrent(int current) {
+        this.current = current;
     }
 
-    public int getPageSize() {
-        return pageSize;
+    public int getSize() {
+        return size;
     }
 
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
+    public void setSize(int size) {
+        this.size = size;
     }
 
-    public long getCount() {
-        return count;
+    public long getTotal() {
+        return total;
     }
 
-    public void setCount(long count) {
-        this.count = count;
+    public void setTotal(long total) {
+        this.total = total;
     }
 
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("PageDto{");
-        sb.append("cur=").append(cur);
-        sb.append(", pageSize=").append(pageSize);
-        sb.append(", count=").append(count);
+        sb.append("current=").append(current);
+        sb.append(", size=").append(size);
+        sb.append(", total=").append(total);
         sb.append('}');
         return sb.toString();
     }

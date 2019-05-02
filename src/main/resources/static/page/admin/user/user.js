@@ -1,4 +1,4 @@
-cur = 1;
+current = 1;
 /**
  * 查询用户列表
  */
@@ -8,8 +8,8 @@ function list() {
     $.ajax({
         type: "get",
         data: {
-            cur: cur,
-            pageSize: 2
+            current: current,
+            size: 2
         },
         url: "/admin/user/list",
         success: function (data) {

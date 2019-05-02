@@ -22,12 +22,12 @@ public class UserService {
 
     public List<UserDto> list(PageDto pageDto) {
         // 只对第一个查询语句有效
-        PageHelper.startPage(pageDto.getCur(), pageDto.getPageSize());
+        PageHelper.startPage(pageDto.getCurrent(), pageDto.getSize());
         List<UserDto> userDtoList = new ArrayList<>();
         List<User> users = userMapper.selectByExample(null);
         PageInfo<User> pageInfo = new PageInfo<>(users);
-        long count = pageInfo.getTotal(); // 得到总行数
-        pageDto.setCount(count);
+        long total = pageInfo.getTotal(); // 得到总行数
+        pageDto.setTotal(total);
 
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);

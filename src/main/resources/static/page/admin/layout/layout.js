@@ -58,16 +58,16 @@ function renderPagination(pageOption, callback) {
     }
     $("#pagination").pagination({
         maxSize: 10,
-        page: pageOption.cur,
-        totals: pageOption.count,
-        pageSize: pageOption.pageSize,
+        page: pageOption.current,
+        totals: pageOption.total,
+        pageSize: pageOption.size,
         lastText: '>>',
         firstText: '<<',
         prevText: '<',
         nextText: '>',
         // btnSize: 'lg'
     }).onChangePage(function (e) {
-        cur = e.page;
+        current = e.page;
         callback();
     });
 }
