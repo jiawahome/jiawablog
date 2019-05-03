@@ -31,9 +31,9 @@ function onUpdateClick(index) {
     console.log(article);
     $("#id-input").val(article.id);
     $("#title-input").val(article.title);
-    $("#category-id-input").val(article.categoryId);
-    $("#summary-input").val(article.summary);
-    $("#status-input").val(article.status);
+    $("#category-id-select").val(article.categoryId);
+    $("#summary-textarea").val(article.summary);
+    $("#status-select").val(article.status);
     $('#form-modal').modal("show");
 }
 
@@ -43,9 +43,9 @@ function onUpdateClick(index) {
 function onSaveClick() {
     var id = $("#id-input").val();
     var title = $("#title-input").val();
-    var categoryId = $("#category-id-input").val();
-    var summary = $("#summary-input").val();
-    var status = $("#status-input").val();
+    var categoryId = $("#category-id-select").val();
+    var summary = $("#summary-textarea").val();
+    var status = $("#status-select").val();
 
     $.ajax({
         type: "post",
@@ -99,9 +99,9 @@ function onDeleteClick(id) {
 function onAddClick() {
     $("#id-input").val(null);
     $("#title-input").val(null);
-    $("#category-id-input").val(null);
-    $("#summary-input").val(null);
-    $("#status-input").val(null);
+    $("#category-id-select").val(null);
+    $("#summary-textarea").val(null);
+    $("#status-select").val(null);
     $('#form-modal').modal("show");
 }
 

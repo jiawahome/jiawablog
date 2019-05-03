@@ -32,17 +32,17 @@
                         </div>
                         <div class="form-group">
                             <label>分类</label>
-                            <select id="category-id-input" name="categoryId" type="text" class="form-control" placeholder="类别">
+                            <select id="category-id-select" name="categoryId" type="text" class="form-control" placeholder="类别">
                                 <option th:each="o, stat:${categorys}" th:value="${o.id}" th:text="${o.name}"></option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>概述</label>
-                            <input id="summary-input" name="summary" type="text" class="form-control" placeholder="概述">
+                            <textarea id="summary-textarea" name="summary" type="text" class="form-control" placeholder="概述" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <label>状态</label>
-                            <select id="status-input" name="status" type="text" class="form-control" placeholder="状态">
+                            <select id="status-select" name="status" type="text" class="form-control" placeholder="状态">
                                 <!--<option value="P">发布</option>-->
                                 <!--<option value="D">草稿</option>-->
                                 <option th:each="s:${statuss}" th:value="${s.key}" th:text="${s.value}"></option>
