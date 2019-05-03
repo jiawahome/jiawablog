@@ -105,6 +105,18 @@ function onAddClick() {
     $('#form-modal').modal("show");
 }
 
+/**
+ * 点击内容按钮，弹出内容表单
+ */
+function onContentClick(index) {
+    var article = articles[index];
+    console.log(article);
+    $('#content-summernote').summernote({
+        height: 300
+    });
+    $('#form-content-modal').modal("show");
+}
+
 $(function () {
 
     list();

@@ -18,6 +18,7 @@
         <td th:each="s:${statuss}" th:if="${o.status == s.key}" th:text="${s.value}"></td>
         <td th:text="${#dates.format(o.at, 'yyyy-MM-dd HH:mm:ss')}"></td>
         <td>
+            <button type="button" class="btn btn-primary btn-xs" th:onclick="'javascript:onContentClick(' + ${stat.index} + ')'">内容</button>
             <button type="button" class="btn btn-primary btn-xs" th:onclick="'javascript:onUpdateClick(' + ${stat.index} + ')'">修改</button>
             <button type="button" class="btn btn-danger btn-xs" th:onclick="'javascript:onDeleteClick(\'' + ${o.id} + '\')'">删除</button>
         </td>
