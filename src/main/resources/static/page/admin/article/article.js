@@ -111,10 +111,22 @@ function onAddClick() {
 function onContentClick(index) {
     var article = articles[index];
     console.log(article);
+    $("#content-id-input").val(article.id);
+
     $('#content-summernote').summernote({
         height: 300
     });
-    $('#form-content-modal').modal("show");
+    $('#content-summernote').summernote("code", "");
+    $.ajax({
+        type: "get",
+        url: "/admin/article/content/find/" + article.id,
+        success: function (data) {
+            $('#content-summernote').summernote("code", data.content);
+            $('#form-content-modal').modal("show");
+        }
+    })
+
+
 }
 
 /**

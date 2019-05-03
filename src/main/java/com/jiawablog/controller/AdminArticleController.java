@@ -82,4 +82,13 @@ public class AdminArticleController {
         LOG.info("文章内容保存结束：{}", "success");
         return "success";
     }
+
+    @GetMapping("/admin/article/content/find/{id}")
+    @ResponseBody
+    private ContentDto findContent(@PathVariable String id) {
+        LOG.info("文章内容查询开始：{}", id);
+        ContentDto contentDto = articleService.findContent(id);
+        LOG.info("文章内容查询结束：{}", "success");
+        return contentDto;
+    }
 }

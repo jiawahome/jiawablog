@@ -81,10 +81,19 @@ public class ArticleService {
         BeanUtils.copyProperties(contentDto, content);
         int i = contentMapper.updateByPrimaryKeyWithBLOBs(content);
         if (i == 0) {
-            String id = UuidUtil.uuid();
-            content.setId(id);
+            content.setId(contentDto.getId());
             i = contentMapper.insert(content);
         }
         return i;
+    }
+
+    public ContentDto findContent(String id) {
+        Content content = contentMapper.selectByPrimaryKey(id);
+        if (content == null) {
+            return null;
+        }
+        ContentDto contentDto = new ContentDto();
+        BeanUtils.copyProperties(content, contentDto);
+        return contentDto;
     }
 }
