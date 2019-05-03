@@ -12,6 +12,7 @@ import com.jiawablog.mapper.ContentMapper;
 import com.jiawablog.util.UuidUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -49,7 +50,12 @@ public class ArticleService {
         return articleMapper.insert(article);
     }
 
+    @Transactional
     public int delete(String id) {
+        contentMapper.deleteByPrimaryKey(id);
+        if (1 == 1) {
+            throw new RuntimeException("事务测试异常");
+        }
         return articleMapper.deleteByPrimaryKey(id);
     }
 
