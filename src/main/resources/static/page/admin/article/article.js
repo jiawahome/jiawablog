@@ -117,6 +117,27 @@ function onContentClick(index) {
     $('#form-content-modal').modal("show");
 }
 
+/**
+ * 点击表单保存按钮时的动作
+ */
+function onSaveContentClick() {
+    var id = $("#content-id-input").val();
+    var content = $('#content-summernote').summernote("code");
+
+    $.ajax({
+        type: "post",
+        url: "/admin/article/content/save",
+        data: {
+            id: id,
+            content: content
+        },
+        success: function (data) {
+            console.log("save success");
+            showAlertModal("保存成功")
+        }
+    })
+}
+
 $(function () {
 
     list();

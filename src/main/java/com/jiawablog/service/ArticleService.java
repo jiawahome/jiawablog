@@ -3,9 +3,12 @@ package com.jiawablog.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jiawablog.db.Article;
+import com.jiawablog.db.Content;
 import com.jiawablog.dto.ArticleDto;
+import com.jiawablog.dto.ContentDto;
 import com.jiawablog.dto.PageDto;
 import com.jiawablog.mapper.ArticleMapper;
+import com.jiawablog.mapper.ContentMapper;
 import com.jiawablog.util.UuidUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,9 @@ public class ArticleService {
 
     @Resource
     public ArticleMapper articleMapper;
+
+    @Resource
+    public ContentMapper contentMapper;
 
     public List<ArticleDto> list(PageDto pageDto) {
         // 只对第一个查询语句有效
@@ -61,6 +67,23 @@ public class ArticleService {
             String id = UuidUtil.uuid();
             article.setId(id);
             i = this.create(article);
+        }
+        return i;
+    }
+
+    /**
+     * 保存文章
+     * @param contentDto
+     * @return
+     */
+    public int save(ContentDto contentDto) {
+        Content content = new Content();
+        BeanUtils.copyProperties(contentDto, content);
+        int i = contentMapper.updateByPrimaryKeyWithBLOBs(content);
+        if (i == 0) {
+            String id = UuidUtil.uuid();
+            content.setId(id);
+            i = contentMapper.insert(content);
         }
         return i;
     }

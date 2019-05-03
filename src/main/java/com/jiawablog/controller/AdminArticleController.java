@@ -1,9 +1,6 @@
 package com.jiawablog.controller;
 
-import com.jiawablog.dto.ArticleDto;
-import com.jiawablog.dto.CategoryDto;
-import com.jiawablog.dto.OptionDto;
-import com.jiawablog.dto.PageDto;
+import com.jiawablog.dto.*;
 import com.jiawablog.service.ArticleService;
 import com.jiawablog.service.CategoryService;
 import com.jiawablog.util.OptionUtil;
@@ -58,9 +55,9 @@ public class AdminArticleController {
     @PostMapping("/admin/article/save")
     @ResponseBody
     private String save(ArticleDto articleDto) {
-        LOG.info("文章列表保存开始：{}", articleDto);
+        LOG.info("文章保存开始：{}", articleDto);
         int i = articleService.save(articleDto);
-        LOG.info("文章列表保存结束：{}", "success");
+        LOG.info("文章保存结束：{}", "success");
         return "success";
     }
 
@@ -71,9 +68,18 @@ public class AdminArticleController {
     @DeleteMapping("/admin/article/delete/{id}")
     @ResponseBody
     private String delete(@PathVariable String id) {
-        LOG.info("文章列表删除开始：{}", id);
+        LOG.info("文章删除开始：{}", id);
         articleService.delete(id);
-        LOG.info("文章列表删除结束：{}", "success");
+        LOG.info("文章删除结束：{}", "success");
+        return "success";
+    }
+
+    @PostMapping("/admin/article/content/save")
+    @ResponseBody
+    private String saveContent(ContentDto contentDto) {
+        LOG.info("文章内容保存开始：{}", contentDto);
+        int i = articleService.save(contentDto);
+        LOG.info("文章内容保存结束：{}", "success");
         return "success";
     }
 }

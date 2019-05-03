@@ -32,6 +32,7 @@
 
         <!--<table tableName="user" domainObjectName="User" />-->
         <!--<table tableName="category" domainObjectName="Category" />-->
-        <table tableName="article" domainObjectName="Article" />
+        <!--<table tableName="article" domainObjectName="Article" />-->
+        <table tableName="content" domainObjectName="Content" />
     </context>
 </generatorConfiguration>
