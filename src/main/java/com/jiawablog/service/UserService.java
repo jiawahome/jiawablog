@@ -8,6 +8,8 @@ import com.jiawablog.dto.PageDto;
 import com.jiawablog.dto.UserDto;
 import com.jiawablog.mapper.UserMapper;
 import com.jiawablog.util.UuidUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,6 +18,8 @@ import java.util.List;
 
 @Service
 public class UserService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
 
     @Resource
     public UserMapper userMapper;
@@ -87,19 +91,26 @@ public class UserService {
         }
     }
 
-//    public List<User> list() {
-//        return userMapper.list();
-//    }
-//
-//    public int create(User user) {
-//        return userMapper.create(user);
-//    }
-//
-//    public int delete(String id) {
-//        return userMapper.delete(id);
-//    }
-//
-//    public int update(User user) {
-//        return userMapper.update(user);
-//    }
+    /**
+     * 登录功能
+     * 1：登录成功
+     * -1： 登录失败
+     * @param userDto
+     * @return
+     */
+    public int doLogin(UserDto userDto) {
+        User user = this.selectByLoginName(userDto.getLoginName());
+        if (user == null) {
+            LOG.info("用户名不对");
+            return -1;
+        } else {
+            if (user.getPassword().equals(userDto.getPassword())) {
+                LOG.info("登录成功");
+                return 1;
+            } else {
+                LOG.info("密码错");
+                return -1;
+            }
+        }
+    }
 }
