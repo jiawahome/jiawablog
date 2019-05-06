@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -24,8 +25,9 @@ public class AdminLoginController {
     }
 
     @PostMapping("/admin/doLogin")
-    public int doLogin(UserDto userDto) {
-        int i = userService.doLogin(userDto);
+    @ResponseBody
+    public Object doLogin(UserDto userDto) {
+        Integer i = userService.doLogin(userDto);
         return i;
     }
 }
