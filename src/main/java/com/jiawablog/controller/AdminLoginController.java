@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AdminLoginController {
@@ -26,8 +27,11 @@ public class AdminLoginController {
 
     @PostMapping("/admin/doLogin")
     @ResponseBody
-    public Object doLogin(UserDto userDto) {
+    public Object doLogin(UserDto userDto, HttpServletRequest request) {
         Integer i = userService.doLogin(userDto);
+        if (i == 1) {
+            request.getSession().setAttribute("user", userDto);
+        }
         return i;
     }
 }
