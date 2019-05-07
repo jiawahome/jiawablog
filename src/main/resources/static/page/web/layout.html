@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/static/css/web.css" rel="stylesheet">
+    <link href="/static/css/am-pagination.css" rel="stylesheet">
 
 </head>
 
@@ -158,6 +159,16 @@
     </p>
 </footer>
 
+<!--Loading框-->
+<div id="loading-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div style="width: 80px; height: 80px; text-align: center; position: absolute; left: 50%; top: 50%; margin-left: -40px; margin-top: -40px">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="/static/image/loading.gif">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -165,5 +176,7 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/page/web/layout.js"></script>
+<script src="/static/js/am-pagination.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,9 @@
+<div th:each="o, stat:${list}" class="blog-post">
+    <h2 class="blog-post-title" th:text="${o.title}"></h2>
+    <p class="blog-post-meta" th:text="${o.at}"> <a href="#">甲蛙</a></p>
+</div><!-- /.blog-post -->
+<script th:inline="javascript">
+    var articles = [[${list}]];
+    var page = [[${page}]];
+    console.log(articles);
+</script>
