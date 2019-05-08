@@ -30,15 +30,18 @@ function renderPagination(pageOption, callback) {
 }
 
 function listCategory() {
+    var categorys = sessionStorage.getItem("categorys");
+    if (categorys) {
+        $("#category-list").html(categorys);
+        return;
+    }
+
     $.ajax({
         type: "get",
-        data: {
-            current: current,
-            size: 10
-        },
         url: "/web/category/all",
         success: function (data) {
             $("#category-list").html(data);
+            sessionStorage.setItem("categorys", data);
         }
     })
 }
