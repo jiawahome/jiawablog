@@ -36,7 +36,7 @@ public class AdminArticleController {
     }
 
     @GetMapping("/admin/article/list")
-    private String list(Model model, PageDto pageDto) {
+    private String list(Model model, ArticlePageDto pageDto) {
         LOG.info("文章列表查询开始：{}", pageDto.toString());
         List<ArticleDto> articleList = articleService.list(pageDto);
         model.addAttribute("list", articleList);

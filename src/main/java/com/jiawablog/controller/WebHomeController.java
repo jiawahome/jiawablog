@@ -1,9 +1,9 @@
 package com.jiawablog.controller;
 
 import com.jiawablog.dto.ArticleDto;
+import com.jiawablog.dto.ArticlePageDto;
 import com.jiawablog.dto.CategoryDto;
 import com.jiawablog.dto.OptionDto;
-import com.jiawablog.dto.PageDto;
 import com.jiawablog.service.ArticleService;
 import com.jiawablog.service.CategoryService;
 import com.jiawablog.util.OptionUtil;
@@ -33,8 +33,9 @@ public class WebHomeController {
     }
 
     @GetMapping("/web/article/list")
-    private String list(Model model, PageDto pageDto) {
+    private String list(Model model, ArticlePageDto pageDto) {
         LOG.info("文章列表查询开始：{}", pageDto.toString());
+        pageDto.setStatus("P");
         List<ArticleDto> articleList = articleService.list(pageDto);
         model.addAttribute("list", articleList);
         model.addAttribute("page", pageDto);
