@@ -111,4 +111,13 @@ public class ArticleService {
         BeanUtils.copyProperties(content, contentDto);
         return contentDto;
     }
+
+    public ArticleDto findArticle(String id) {
+        Article article = articleMapper.selectByPrimaryKey(id);
+        ArticleDto articleDto = new ArticleDto();
+        BeanUtils.copyProperties(article, articleDto);
+        ContentDto contentDto = findContent(id);
+        articleDto.setContent(contentDto);
+        return articleDto;
+    }
 }

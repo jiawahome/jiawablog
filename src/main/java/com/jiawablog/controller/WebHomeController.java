@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -28,8 +29,15 @@ public class WebHomeController {
     private CategoryService categoryService;
 
     @GetMapping("/")
-    public String login() {
+    public String index() {
         return "web/index";
+    }
+
+    @GetMapping("/detail/{id}")
+    public String detail(Model model, @PathVariable String id) {
+        ArticleDto articleDto = articleService.findArticle(id);
+        model.addAttribute("article", articleDto);
+        return "web/detail";
     }
 
     @GetMapping("/web/article/list")

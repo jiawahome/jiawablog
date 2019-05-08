@@ -1,5 +1,5 @@
 <div th:each="o, stat:${list}" class="blog-post">
-    <h2 class="blog-post-title" th:text="${o.title}"></h2>
+    <a th:href="'/detail/' + ${o.id}"><h2 class="blog-post-title" th:text="${o.title}"></h2></a>
     <p class="blog-post-meta">
         <span th:text="${#dates.format(o.at, 'yyyy-MM-dd HH:mm:ss')}"></span>
         <span th:each="c, s:${categorys}" th:if="${o.categoryId == c.id}" th:text="${c.name}"></span>

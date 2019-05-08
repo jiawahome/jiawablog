@@ -1,0 +1,16 @@
+<html xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{/web/layout}">
+
+<div layout:fragment="content">
+    <div class="blog-post">
+        <a th:href="'/detail/' + ${article.id}"><h2 class="blog-post-title" th:text="${article.title}"></h2></a>
+        <p class="blog-post-meta">
+            <span th:text="${#dates.format(article.at, 'yyyy-MM-dd HH:mm:ss')}"></span>
+            <span th:each="c, s:${categorys}" th:if="${article.categoryId == c.id}" th:text="${c.name}"></span>
+        </p>
+        <blockquote>
+            <p th:text="${article.summary}"></p>
+        </blockquote>
+        <p th:utext="${article.content.content}"></p>
+    </div><!-- /.blog-post -->
+</div>
