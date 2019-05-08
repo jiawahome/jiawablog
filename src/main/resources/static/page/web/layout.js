@@ -29,5 +29,20 @@ function renderPagination(pageOption, callback) {
     });
 }
 
+function listCategory() {
+    $.ajax({
+        type: "get",
+        data: {
+            current: current,
+            size: 10
+        },
+        url: "/web/category/all",
+        success: function (data) {
+            $("#category-list").html(data);
+        }
+    })
+}
+
 $(function () {
+    listCategory();
 });

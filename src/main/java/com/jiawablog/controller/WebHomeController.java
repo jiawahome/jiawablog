@@ -58,4 +58,14 @@ public class WebHomeController {
         return "web/list";
     }
 
+    @GetMapping("/web/category/all")
+    private String all(Model model) {
+        LOG.info("分类列表查询开始：{}");
+        List<CategoryDto> categoryList = categoryService.all();
+        model.addAttribute("list", categoryList);
+
+        LOG.info("分类列表查询结束");
+        return "web/category";
+    }
+
 }
