@@ -1,6 +1,12 @@
 <div th:each="o, stat:${list}" class="blog-post">
     <h2 class="blog-post-title" th:text="${o.title}"></h2>
-    <p class="blog-post-meta" th:text="${o.at}"> <a href="#">甲蛙</a></p>
+    <p class="blog-post-meta">
+        <span th:text="${#dates.format(o.at, 'yyyy-MM-dd HH:mm:ss')}"></span>
+        <span th:each="c, s:${categorys}" th:if="${o.categoryId == c.id}" th:text="${c.name}"></span>
+    </p>
+    <blockquote>
+        <p th:text="${o.summary}"></p>
+    </blockquote>
 </div><!-- /.blog-post -->
 <script th:inline="javascript">
     var articles = [[${list}]];

@@ -9,7 +9,7 @@ function list() {
         type: "get",
         data: {
             current: current,
-            size: 1
+            size: 10
         },
         url: "/web/article/list",
         success: function (data) {
