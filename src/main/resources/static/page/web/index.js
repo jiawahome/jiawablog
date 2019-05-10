@@ -4,12 +4,14 @@ current = 1;
  */
 function list() {
     showLoadingModal();
+    var cid = getUrlParam("cid");
     console.log("list");
     $.ajax({
         type: "get",
         data: {
             current: current,
-            size: 10
+            size: 10,
+            categoryId: cid
         },
         url: "/web/article/list",
         success: function (data) {

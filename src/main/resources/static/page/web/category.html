@@ -1,1 +1,1 @@
-<li th:each="o, stat:${list}"><a href="#" th:text="${o.name}"></a></li>
+<li th:each="o, stat:${list}"><a th:href="'/?cid=' + ${o.id}" th:text="${o.name}"></a></li>

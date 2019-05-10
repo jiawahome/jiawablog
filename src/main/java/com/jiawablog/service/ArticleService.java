@@ -40,6 +40,9 @@ public class ArticleService {
         if (!StringUtils.isEmpty(pageDto.getStatus())) {
             criteria.andStatusEqualTo(pageDto.getStatus());
         }
+        if (!StringUtils.isEmpty(pageDto.getCategoryId())) {
+            criteria.andCategoryIdEqualTo(pageDto.getCategoryId());
+        }
 
         List<Article> articles = articleMapper.selectByExample(example);
         PageInfo<Article> pageInfo = new PageInfo<>(articles);
