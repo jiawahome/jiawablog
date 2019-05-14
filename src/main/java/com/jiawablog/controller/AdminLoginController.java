@@ -5,6 +5,7 @@ import com.jiawablog.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,6 +35,7 @@ public class AdminLoginController {
     @PostMapping("/admin/doLogin")
     @ResponseBody
     public Object doLogin(UserDto userDto, HttpServletRequest request) {
+        userDto.setPassword(DigestUtils.md5DigestAsHex(userDto.getPassword().getBytes()));
         Integer i = userService.doLogin(userDto);
         if (i == 1) {
             request.getSession().setAttribute("user", userDto);
