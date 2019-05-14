@@ -25,6 +25,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(sessionInterceptor())
                 .addPathPatterns("/admin/**")
+                .excludePathPatterns("/admin/404")
                 .excludePathPatterns("/admin/login")
                 .excludePathPatterns("/admin/doLogin");
     }

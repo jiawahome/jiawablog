@@ -11,7 +11,8 @@ function list() {
         data: {
             current: current,
             size: 10,
-            categoryId: cid
+            categoryId: cid,
+            status: 'P'
         },
         url: "/web/article/list",
         success: function (data) {

@@ -20,9 +20,15 @@ public class AdminLoginController {
     @Resource
     private UserService userService;
 
-    @GetMapping("/admin/login")
+    @GetMapping("/123/login")
     public String login() {
         return "admin/login/login";
+    }
+
+    @GetMapping("/admin/404")
+    public String _404() {
+        System.out.println("404");
+        return "admin/404";
     }
 
     @PostMapping("/admin/doLogin")

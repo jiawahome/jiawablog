@@ -16,7 +16,7 @@ public class SessionInterceptor implements HandlerInterceptor {
         Object user = request.getSession().getAttribute("user");
         if (null == user) {
             LOG.info("未登录");
-            response.sendRedirect("/admin/login");
+            response.sendRedirect("/admin/404");
             return false;
         }
         LOG.info("已登录");
