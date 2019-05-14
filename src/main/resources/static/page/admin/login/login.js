@@ -5,7 +5,7 @@ function doLogin() {
         url: "/admin/doLogin",
         data: {
             loginName: $("#loginName").val(),
-            password: $("#password").val()
+            password: hex_md5($("#password").val())
         },
         success: function (data) {
             console.log(data);
