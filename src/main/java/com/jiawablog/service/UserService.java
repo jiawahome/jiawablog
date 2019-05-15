@@ -6,6 +6,7 @@ import com.jiawablog.db.User;
 import com.jiawablog.db.UserExample;
 import com.jiawablog.dto.PageDto;
 import com.jiawablog.dto.UserDto;
+import com.jiawablog.mapper.MineUserMapper;
 import com.jiawablog.mapper.UserMapper;
 import com.jiawablog.util.UuidUtil;
 import org.slf4j.Logger;
@@ -23,6 +24,9 @@ public class UserService {
 
     @Resource
     public UserMapper userMapper;
+
+    @Resource
+    public MineUserMapper mineUserMapper;
 
     public List<UserDto> list(PageDto pageDto) {
         // 只对第一个查询语句有效
@@ -99,7 +103,8 @@ public class UserService {
      * @return
      */
     public int doLogin(UserDto userDto) {
-        User user = this.selectByLoginName(userDto.getLoginName());
+//        User user = this.selectByLoginName(userDto.getLoginName());
+        User user = mineUserMapper.selectByLoginName(userDto.getLoginName());
         if (user == null) {
             LOG.info("用户名不对");
             return -1;

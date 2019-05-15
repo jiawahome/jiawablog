@@ -6,7 +6,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
-INSERT INTO  `user` VALUES ('1111', 'test', 'test');
+INSERT INTO  `user` VALUES ('1111', 'test', 'fb469d7ef430b0baf0cab6c436e70375');
 
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
