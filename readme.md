@@ -1,7 +1,12 @@
 # [甲蛙之家](http://www.jiawahome.com)
-Java全栈技术学习网站，在项目中学习全栈开发，全栈不只是开发！
 
 [获取完整的项目视频](http://www.jiawahome.com)
+
+Java全栈技术学习网站，在项目中学习全栈开发，全栈不只是开发！
+
+java全栈技术交流群：174545069，欢迎新手、大神加入
+
+![Image text](https://raw.githubusercontent.com/jiawahome/jiawablog/master/src/main/resources/static/image/github/qrcode.jpg)
 
 # 项目描述
 这是一个完整的博客项目，包含后台管理和对外网站。
@@ -43,3 +48,8 @@ Java全栈技术学习网站，在项目中学习全栈开发，全栈不只是�
 * idea：开发工具，整个视频中会穿插开发工具的使用
 * 网站安全：常见的网站漏洞有防护（不依赖其它），面试重点。
 * 生产发布：将网站发布到外网可以访问，使用阿里云云服务
+
+### 页面示例
+![Image text](https://raw.githubusercontent.com/jiawahome/jiawablog/master/src/main/resources/static/image/github/admin.jpg)
+![Image text](https://raw.githubusercontent.com/jiawahome/jiawablog/master/src/main/resources/static/image/github/web.jpg)
+![Image text](https://raw.githubusercontent.com/jiawahome/jiawablog/master/src/main/resources/static/image/github/detail.jpg)
