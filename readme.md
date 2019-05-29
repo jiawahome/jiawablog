@@ -50,6 +50,9 @@ java全栈技术交流群：174545069，欢迎新手、大神加入
 * 生产发布：将网站发布到外网可以访问，使用阿里云云服务
 
 ### 页面示例
+后台管理
 ![Image text](https://raw.githubusercontent.com/jiawahome/jiawablog/master/src/main/resources/static/image/github/admin.jpg)
+网站首页
 ![Image text](https://raw.githubusercontent.com/jiawahome/jiawablog/master/src/main/resources/static/image/github/web.jpg)
+文章详情
 ![Image text](https://raw.githubusercontent.com/jiawahome/jiawablog/master/src/main/resources/static/image/github/detail.jpg)
